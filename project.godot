@@ -18,6 +18,11 @@ _global_script_class_icons={
 config/name="Monster Scout Gameplay Test"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Scripts/Singleton/Global.gd"
+MonsterData="*res://Scripts/Singleton/MonsterData.gd"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
