@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/ResourceScripts/res_traits.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+Data = [
+    {
+        "name" : "template",
+        "description" : "text describing this trait",
+        "activation" : "number representing an entry in a list of activation conditions"
+    }
+]

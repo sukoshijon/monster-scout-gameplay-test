@@ -1,0 +1,73 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/ResourceScripts/res_monsters.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+Data = [ {
+"name": "Template",
+"stats": {
+"atk": -1,
+"def": -1,
+"mhp": -1,
+"mmp": -1,
+"sak": -1,
+"sdf": -1,
+"spd": -1
+}
+}, {
+"name": "Gramurso",
+"stats": {
+"atk": 100,
+"def": 100,
+"mhp": 100,
+"mmp": 100,
+"sak": 100,
+"sdf": 100,
+"spd": 80
+}
+}, {
+"name": "John",
+"stats": {
+"atk": 100,
+"def": 100,
+"mhp": 100,
+"mmp": 100,
+"sak": 100,
+"sdf": 100,
+"spd": 80
+}
+}, {
+"name": "Jeff",
+"stats": {
+"atk": 100,
+"def": 100,
+"mhp": 100,
+"mmp": 100,
+"sak": 100,
+"sdf": 100,
+"spd": 80
+}
+}, {
+"name": "Jim",
+"stats": {
+"atk": 100,
+"def": 100,
+"mhp": 100,
+"mmp": 100,
+"sak": 100,
+"sdf": 100,
+"spd": 80
+}
+}, {
+"name": "Jan",
+"stats": {
+"atk": 100,
+"def": 100,
+"mhp": 100,
+"mmp": 100,
+"sak": 100,
+"sdf": 100,
+"spd": 80
+}
+} ]

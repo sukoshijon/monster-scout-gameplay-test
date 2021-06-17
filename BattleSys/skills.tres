@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/ResourceScripts/res_skills.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+Data = [
+    {
+        "name" : "template",
+        "description" : "text describing the skill",
+        "power" : -1,
+        "accuracy" : -1,
+        "mpcost" : -1
+    }
+]
