@@ -19,8 +19,6 @@ config/name="Monster Scout Gameplay Test"
 config/icon="res://icon.png"
 
 [autoload]
-
-<<<<<<< HEAD
 SkillEffects="*res://Scripts/Singleton/skill_effects.gd"
 
 [display]
@@ -28,10 +26,6 @@ SkillEffects="*res://Scripts/Singleton/skill_effects.gd"
 window/size/width=960
 window/size/height=540
 window/stretch/mode="viewport"
-=======
-Global="*res://Scripts/Singleton/Global.gd"
-MonsterData="*res://Scripts/Singleton/MonsterData.gd"
->>>>>>> ca5a0294220cce1d7995fc2a72dd44f08c0da135
 
 [rendering]
 
