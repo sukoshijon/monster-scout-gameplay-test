@@ -4,11 +4,9 @@
 
 [resource]
 script = ExtResource( 1 )
-Data = [
-    {
-        "name" : "template",
-        "buy_price" : -1,
-        "sell_price" : -1,
-        "type" : "item_type"
-    }
-]
+Data = [ {
+"buy_price": -1,
+"name": "template",
+"sell_price": -1,
+"type": "item_type"
+} ]
