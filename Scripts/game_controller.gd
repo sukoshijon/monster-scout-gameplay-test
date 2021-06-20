@@ -33,9 +33,9 @@ func _process(delta):
 	
 	# target camera to currently controlled character
 	var camera_target = Vector3(
-		chars[active_char].transform.origin.x + sin(angle) * 10,
-		6,
-		chars[active_char].transform.origin.z + cos(angle) * 10
+		chars[active_char].transform.origin.x + sin(angle) * 14,
+		8,
+		chars[active_char].transform.origin.z + cos(angle) * 14
 	);
 	
 	$Camera.transform.origin = lerp($Camera.transform.origin, camera_target, 0.25);

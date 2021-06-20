@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/game_controller.gd" type="Script" id=1]
 
@@ -11,16 +11,22 @@ albedo_color = Color( 0.294118, 0.776471, 0.239216, 1 )
 [sub_resource type="CubeMesh" id=3]
 size = Vector3( 1, 2, 1 )
 
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0, 1, 1, 1 )
+
 [sub_resource type="CubeMesh" id=4]
 size = Vector3( 0.5, 1, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0, 1, 0.764706, 1 )
 
 [node name="Battle" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 10 )
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 8, 14 )
 projection = 1
-size = 10.0
+size = 16.0
 
 [node name="Floor" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
@@ -29,9 +35,14 @@ material/0 = SubResource( 2 )
 [node name="Player" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 mesh = SubResource( 3 )
-material/0 = null
+material/0 = SubResource( 5 )
 
 [node name="PlayerMonster" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, 0 )
 mesh = SubResource( 4 )
-material/0 = null
+material/0 = SubResource( 6 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.766504, -0.445871, 0.462245, 0, 0.71974, 0.694244, -0.642239, -0.532141, 0.551684, 0, 4.63444, 0 )
+shadow_enabled = true
+shadow_contact = 0.5
