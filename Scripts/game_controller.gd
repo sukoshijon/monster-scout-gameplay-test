@@ -15,20 +15,28 @@ func _process(delta):
 	
 	# movement
 	var move_target = Vector2(0,0);
+	var move_magnitude = Vector2(0,0);
 	if Input.is_action_pressed("game_up"):
 		move_target.y -= 1;
+		move_magnitude.y = Input.get_action_strength("game_up");
 	if Input.is_action_pressed("game_down"):
 		move_target.y += 1;
+		move_magnitude.y = Input.get_action_strength("game_down");
 	if Input.is_action_pressed("game_left"):
 		move_target.x -= 1;
+		move_magnitude.x = Input.get_action_strength("game_left");
 	if Input.is_action_pressed("game_right"):
 		move_target.x += 1;
+		move_magnitude.x = Input.get_action_strength("game_right");
+	
+	var move_target_normalized = move_target.normalized()
+	move_target_normalized *= move_magnitude;
 	
 	# move currently controlled character
 	chars[active_char].translate(Vector3(
-		(cos(angle) * move_target.normalized().x + sin(angle) * move_target.normalized().y) * 10 * delta,
+		(cos(angle) * move_target_normalized.x + sin(angle) * move_target_normalized.y) * 10 * delta,
 		0,
-		(cos(angle) * move_target.normalized().y + sin(angle) * move_target.normalized().x) * 10 * delta	
+		(cos(angle) * move_target_normalized.y + sin(angle) * move_target_normalized.x) * 10 * delta	
 	));
 	
 	# target camera to currently controlled character
