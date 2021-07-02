@@ -7,6 +7,10 @@ onready var chars = [
 ];
 onready var active_char = 0;
 
+var speed = 10;
+
+var sprint_combo = [0, 0.25];
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# character switching
@@ -29,14 +33,42 @@ func _process(delta):
 		move_target.x += 1;
 		move_magnitude.x = Input.get_action_strength("game_right");
 	
+	# code to sprint when double tapping direction
+	if sprint_combo[0] != 3:
+		# detect first direction press
+		if move_magnitude.length() > 0.95 && sprint_combo[0] == 0:
+			sprint_combo[0] = 1;
+		# detect release of first direction press within 0.075 seconds
+		elif sprint_combo[0] == 1:
+			if move_magnitude.length() > 0.95:
+				sprint_combo[1] -= delta
+				if sprint_combo[1] < 0:
+					sprint_combo = [0, 0.075]
+			else:
+				sprint_combo = [2, 0.075]
+		# detect second direction press within 0.075 seconds
+		elif sprint_combo[0] == 2:
+			if move_magnitude.length() > 0.95:
+				# you can sprint now
+				speed = 20
+				sprint_combo = [3, 0.075]
+			else:
+				sprint_combo[1] -= delta
+				if sprint_combo[1] < 0:
+					sprint_combo = [0, 0.075]
+	# stop sprinting
+	elif speed != 10 && move_magnitude.length() < 0.95:
+		speed = 10
+		sprint_combo[0] = 0
+	
 	var move_target_normalized = move_target.normalized()
 	move_target_normalized *= move_magnitude;
 	
 	# move currently controlled character
 	chars[active_char].translate(Vector3(
-		(cos(angle) * move_target_normalized.x + sin(angle) * move_target_normalized.y) * 10 * delta,
+		(cos(angle) * move_target_normalized.x + sin(angle) * move_target_normalized.y) * speed * delta,
 		0,
-		(cos(angle) * move_target_normalized.y + sin(angle) * move_target_normalized.x) * 10 * delta	
+		(cos(angle) * move_target_normalized.y + sin(angle) * move_target_normalized.x) * speed * delta	
 	));
 	
 	# target camera to currently controlled character
